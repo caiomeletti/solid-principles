@@ -10,6 +10,9 @@ Então F(y) deve ser verdadeiro para objetos y de tipo A, em que A é um subtipo
 
 De maneira mais geral, afirma que os objetos em um programa devem ser 
 substituíveis por instâncias de seus subtipos sem alterar a correção desse programa.
+
+Classes derivadas (ou classes-filhas) devem ser capazes de substituir suas 
+classes-base (ou classes-mães)
 ******************************************************************************/
 namespace solid_principles.principles.Lsp;
 
