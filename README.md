@@ -9,13 +9,13 @@ Na programação de computadores orientada a objetos, o termo **SOLID** é um ac
     [I] Interface segregation principle 
     [D] Dependency Inversion Principle 
 
-> Neste repositório encontraremos implementações de código para exemplificar os princípios SOLID.
+> **Neste repositório encontraremos implementações de código para exemplificar os princípios SOLID.**
 
 ## Origem dos princípios SOLID
 
-O primeiro indício dos princípios SOLID apareceu em 1995, no artigo *“The principles of OoD”* de Robert C. Martin, também conhecido como *“Uncle Bob”*.
+O primeiro indício dos princípios SOLID apareceu em 1995, no artigo *“The principles of OoD”* de [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin), também conhecido como *"Uncle Bob"*.
 
-Em 2002, lançou o livro “Agile Software Development, Principles, Patterns, and Practices” que reúne diversos artigos sobre o tema.
+Em 2002, lançou o livro *"Agile Software Development, Principles, Patterns, and Practices"* que reúne diversos artigos sobre o tema.
 
 A sigla SOLID só foi apresentada mais tarde, por Michael Feathers.
 
@@ -46,9 +46,9 @@ Benefícios:
 
 Na programação orientada a objeto, o princípio do aberto/fechado estabelece que:
 
-> Entidades de software (classes, módulos, funções, etc.) devem ser abertas para extensão, mas fechadas para modificação;
+> Entidades de software (classes, módulos, funções, etc.) devem ser abertas para extensão, mas fechadas para modificação.
 
-Isto é, a entidade pode permitir que o seu comportamento seja estendido sem modificar seu código-fonte.
+Dessa forma, a entidade pode permitir que o seu comportamento seja estendido sem modificar seu código-fonte.
 
 O nome do princípio aberto/fechado tem sido usado de duas maneiras. Ambas as maneiras usam generalizações (por exemplo, herança, ou delegação de funções) para resolver o aparente dilema, mas os objetivos, as técnicas e os resultados são diferentes.
 
@@ -56,15 +56,16 @@ O nome do princípio aberto/fechado tem sido usado de duas maneiras. Ambas as ma
 
 - [Post](https://github.com/caiomeletti/solid-principles/blob/main/solid-principles/principles/Ocp/Post.cs)
 
+
 ## Liskov substitution principle 🦆
 ### Princípio da substituição de Liskov
 
-> Quem propôs o princípio de maneira formal e matemática, foi Bárbara Liskov.
+> Quem propôs o princípio de maneira formal e matemática, foi [Bárbara Liskov](https://pt.wikipedia.org/wiki/Barbara_Liskov).
 >
 > *Se F(x) é uma propriedade demonstrável sobre objetos x de tipo B. Então F(y) deve ser verdadeiro para objetos y de tipo A, em que A é um subtipo de B.*
 
 
-No entanto, Robert Martin deu uma definição mais simples para ele: "Classes derivadas (ou classes-filhas) devem ser capazes de substituir suas classes-base (ou classes-mães)".
+No entanto, Robert Martin deu uma definição mais simples para ele: *"Classes derivadas (ou classes-filhas) devem ser capazes de substituir suas classes-base (ou classes-mães)"*.
 
 Ou seja, uma classe-filha deve ser capaz de executar tudo que sua classe-mãe faz. Esse princípio se conecta com o polimorfismo e reforça esse pilar da POO.
 
@@ -103,9 +104,11 @@ Para cumprir esse princípio, precisamos usar um padrão de design conhecido com
 
 - [WindowsMachine](https://github.com/caiomeletti/solid-principles/blob/main/solid-principles/principles/Dip/WindowsMachine.cs)
 
+
+
 ## Referências
-[Medium - Jones Roberto Nuzzi](https://medium.com/xp-inc/os-princ%C3%ADpios-do-solid-srp-princ%C3%ADpio-da-responsabilidade-%C3%BAnica-7897c55694fe)
+1. [Os Princípios do SOLID](https://medium.com/xp-inc/os-princ%C3%ADpios-do-solid-srp-princ%C3%ADpio-da-responsabilidade-%C3%BAnica-7897c55694fe). *Medium, Jones Roberto Nuzzi*. 08 de outubro de 2024
 
-[Wikipedia - SOLID](https://en.wikipedia.org/wiki/SOLID)
+2. [SOLID](https://en.wikipedia.org/wiki/SOLID). *Wikipedia*. 09 de outubro de 2024
 
-[Alura - SOLID](https://www.alura.com.br/artigos/solid)
+3. [SOLID: o que é e quais os 5 princípios da Programação Orientada a Objetos (POO)](https://www.alura.com.br/artigos/solid). *Alura*. 07 de outubro de 2024
