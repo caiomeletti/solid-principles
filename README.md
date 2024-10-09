@@ -1,5 +1,13 @@
 # Os Princípios SOLID
 
+![GitHub visitors](https://api.visitorbadge.io/api/VisitorHit?user=caiomeletti&repo=solid-principles&label=visitors)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/caiomeletti/solid-principles)
+![GitHub language count](https://img.shields.io/github/languages/count/caiomeletti/solid-principles)
+![GitHub forks](https://img.shields.io/github/forks/caiomeletti/solid-principles)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/caiomeletti/solid-principles)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/caiomeletti/solid-principles)
+
 Na programação de computadores orientada a objetos, o termo **SOLID** é um acrônimo para cinco postulados de design, destinados a facilitar a compreensão, o desenvolvimento e a manutenção de software.
 
 
