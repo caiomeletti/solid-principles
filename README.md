@@ -1,7 +1,6 @@
 # Os Princípios SOLID
 
-![GitHub visitors](https://api.visitorbadge.io/api/VisitorHit?user=caiomeletti&repo=solid-principles&label=visitors)
-
+![GitHub visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fcaiomeletti%2Fsolid-principles&countColor=%23263759&style=plastic)
 ![GitHub repo size](https://img.shields.io/github/repo-size/caiomeletti/solid-principles)
 ![GitHub language count](https://img.shields.io/github/languages/count/caiomeletti/solid-principles)
 ![GitHub forks](https://img.shields.io/github/forks/caiomeletti/solid-principles)
