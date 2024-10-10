@@ -6,7 +6,7 @@ classes-base (ou classes-mães)
 ******************************************************************************/
 namespace solid_principles.principles.Lsp
 {
-    public class Student
+    public class StudentNoLsp
     {
         internal string name;
 
@@ -21,15 +21,18 @@ namespace solid_principles.principles.Lsp
         }
 
         //Esta implementação viola o princípio de substituição
-        //devido o 'estudante de pós-graduação' herdar 
-        //um método que não faz parte das suas ações,
-        //pois esse tipo de estudante não entrega TCC.
+        //pois qualquer classe-filha herdará o método abaixo
+        //mesmo que a classe represente um tipo de estudante 
+        //que não entregue TCC.
         public void PresentCCWNoLsp()
         {
         }
     }
 
-    public class StudentPosGraduate : Student
+    //Apesar do estudante de pós-graduação não entregar TCC
+    //como é uma classe herdada de Estudante irá 'carregar' 
+    //o método, implementando um comportamento anômalo a classe.
+    public class StudentPosGraduateNoLsp : StudentNoLsp
     {
         public StudentPosGraduate(string name) : base(name)
         {
@@ -38,6 +41,25 @@ namespace solid_principles.principles.Lsp
         public override void Study()
         {
             Console.WriteLine($"{name} está estudando e pesquisando.");
+        }
+    }
+
+    //Pará atender ao 'Lsp', removemos o método de entrega de 
+    //TCC, deixando que as classes filhas escolham implementar 
+    //localmente (ou não) de forma especializada de acordo com 
+    //o comportamento necessário em cada caso.
+    public class Student
+    {
+        internal string name;
+
+        public Student(string name)
+        {
+            this.name = name;
+        }
+
+        public virtual void Study()
+        {
+            Console.WriteLine($"{name} está estudando.");
         }
     }
 
@@ -59,6 +81,18 @@ namespace solid_principles.principles.Lsp
             //originalmente não faz. Além disso, se precisarmos utilizar
             //uma instância de Student, podemos passar, sem medo, uma
             //instância de StudentGraduate ou de StudentPosGraduate.
+        }
+    }
+
+    public class StudentPosGraduate : Student
+    {
+        public StudentPosGraduate(string name) : base(name)
+        {
+        }
+
+        public override void Study()
+        {
+            Console.WriteLine($"{name} está estudando e pesquisando.");
         }
     }
 }
