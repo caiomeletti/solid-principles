@@ -7,70 +7,69 @@ Simplificando: interfaces maiores devem ser divididas em menores.
 Ao fazer isso, podemos garantir que as classes de implementação só precisam 
 se preocupar com os métodos que são do seu interesse.
 ******************************************************************************/
-using solid_principles.principles.Isp.Interfaces;
+using solid.principles.Isp.Interfaces;
 
-namespace solid_principles.principles.Isp
+namespace solid.principles.Isp;
+
+internal class EmployeeNoIsp
 {
-    internal class EmployeeNoIsp
-    {
-        public string Name { get; set; }
-        public decimal AmountSalary { get; set; }
-    }
-    
-    //Aqui o princípio 'Isp' está violado, pois o Recepcionista não deveria 
-    //receber comissão, mas como a interface 'força' a implementação de métodos 
-    //que não são necessários. Sendo a solução o particionamento da interface 
-    //em partes específicas.
-    internal class ReceptionistNoIsp : EmployeeNoIsp, IEmployeeNoIsp
-    {
-        public decimal GenerateCommission()
-        {
-            return 0;
-        }
+    public string Name { get; set; }
+    public decimal AmountSalary { get; set; }
+}
 
-        public decimal Salary()
-        {
-            return AmountSalary;
-        }
+//Aqui o princípio 'Isp' está violado, pois o Recepcionista não deveria 
+//receber comissão, mas como a interface 'força' a implementação de métodos 
+//que não são necessários. Sendo a solução o particionamento da interface 
+//em partes específicas.
+internal class ReceptionistNoIsp : EmployeeNoIsp, IEmployeeNoIsp
+{
+    public decimal GenerateCommission()
+    {
+        return 0;
     }
 
-    //Para atender ao princípio 'Isp', os métodos são separados em interfaces de
-    //acordo com os papéis que irão executar, dessa forma o Vendedor 
-    //implemente métodos de Funcionário e também de Comissionável, enquanto 
-    //que o Recepcionista implementa somente o papel de Funcionário 
-    internal class Employee
+    public decimal Salary()
     {
-        public string Name { get; set; }
-        public decimal AmountSalary { get; set; }
+        return AmountSalary;
+    }
+}
+
+//Para atender ao princípio 'Isp', os métodos são separados em interfaces de
+//acordo com os papéis que irão executar, dessa forma o Vendedor 
+//implemente métodos de Funcionário e também de Comissionável, enquanto 
+//que o Recepcionista implementa somente o papel de Funcionário 
+internal class Employee
+{
+    public string Name { get; set; }
+    public decimal AmountSalary { get; set; }
+}
+
+internal class Salesman : Employee, IEmployee, ICommissionable
+{
+    public decimal PercentCommision { get; set; }
+    public decimal TotalSales { get; set; }
+
+    public decimal GenerateCommission()
+    {
+        return TotalSales < 150000
+           ? PercentCommision * TotalSales
+           : (PercentCommision + (decimal)0.1) * TotalSales;
     }
 
-    internal class Salesman : Employee, IEmployee, ICommissionable
+    public decimal Salary()
     {
-        public decimal PercentCommision { get; set; }
-        public decimal TotalSales { get; set; }
-
-        public decimal GenerateCommission()
-        {
-            return TotalSales < 150000
-               ? PercentCommision * TotalSales
-               : (PercentCommision + (decimal)0.1) * TotalSales;
-        }
-
-        public decimal Salary()
-        {
-            return AmountSalary;
-        }
+        return AmountSalary;
     }
+}
 
-    internal class Receptionist : Employee, IEmployee
+internal class Receptionist : Employee, IEmployee
+{
+    public int NumberHours { get; set; }
+
+    public decimal Salary()
     {
-        public int NumberHours { get; set; }
-
-        public decimal Salary()
-        {
-            return NumberHours > 160
-                ? AmountSalary + (decimal)(160 - NumberHours) * (decimal)(AmountSalary / 160)
-                : AmountSalary;
-        }
+        return NumberHours > 160
+            ? AmountSalary + (decimal)(160 - NumberHours) * (decimal)(AmountSalary / 160)
+            : AmountSalary;
     }
 }

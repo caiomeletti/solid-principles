@@ -1,4 +1,4 @@
-﻿namespace solid_principles.principles.Isp.Interfaces
+﻿namespace solid.principles.Isp.Interfaces
 {
     internal interface IEmployee
     {

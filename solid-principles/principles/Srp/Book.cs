@@ -6,13 +6,13 @@ responsabilidade sobre uma única parte da funcionalidade fornecida pelo softwar
 Robert C. Martin define uma responsabilidade como um “motivo para mudar” e conclui 
 que uma classe ou módulo deve ter um e apenas um motivo para ser alterado.
 ******************************************************************************/
-namespace solid_principles.principles.Srp;
+namespace solid.principles.Srp;
 
 public class Book
 {
-    public string Title { get; set;}
-    public string Author { get; set;}
-    public string Text { get; set;}
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public string Text { get; set; }
 
     public string ReplaceWordInText(string word)
     {

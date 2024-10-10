@@ -6,7 +6,7 @@ para modificação", com isso passamos evitar possíveis erros a um aplicativo e
 ambiente produtivo, claro que se a modificação for para corrigir um erro existente 
 no código esse principio não deveria ser aplicado.
 ******************************************************************************/
-namespace solid_principles.principles.Ocp;
+namespace solid.principles.Ocp;
 
 public class Printer
 {

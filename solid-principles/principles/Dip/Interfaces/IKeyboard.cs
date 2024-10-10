@@ -1,4 +1,4 @@
-namespace solid_principles.principles.Dip.Interfaces;
+namespace solid.principles.Dip.Interfaces;
 
 public interface IKeyboard
 {

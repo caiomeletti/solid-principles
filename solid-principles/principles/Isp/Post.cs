@@ -7,9 +7,9 @@ Simplificando: interfaces maiores devem ser divididas em menores.
 Ao fazer isso, podemos garantir que as classes de implementação só precisam 
 se preocupar com os métodos que são do seu interesse.
 ******************************************************************************/
-using solid_principles.principles.Isp.Interfaces;
+using solid.principles.Isp.Interfaces;
 
-namespace solid_principles.principles.Isp;
+namespace solid.principles.Isp;
 
 //Cada classe implementa somente os métodos necessários
 public class PostOnlyCreate : IPostCreate
@@ -27,7 +27,7 @@ public class PostOnlyRead : IPostRead
 }
 
 //Ou ainda trás mais implementações de acordo com o interesse
-public class Post : IPostRead, IPostCreate 
+public class Post : IPostRead, IPostCreate
 {
     public void Create()
     {

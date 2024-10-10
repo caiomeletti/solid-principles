@@ -4,7 +4,7 @@ Liskov substitution principle — Princípio da substituição de Liskov
 Classes derivadas (ou classes-filhas) devem ser capazes de substituir suas 
 classes-base (ou classes-mães)
 ******************************************************************************/
-namespace solid_principles.principles.Lsp;
+namespace solid.principles.Lsp;
 
 public class StudentNoLsp
 {

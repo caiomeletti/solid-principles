@@ -4,7 +4,7 @@ Liskov substitution principle — Princípio da substituição de Liskov
 Classes derivadas (ou classes-filhas) devem ser capazes de substituir suas 
 classes-base (ou classes-mães)
 ******************************************************************************/
-namespace solid_principles.principles.Lsp;
+namespace solid.principles.Lsp;
 
 //Essa implementação viola o 'LSP', porque todos as classes que derivam de
 //AutomovelNoLsp irão herdar o método AbastecerCombustivel() que é restrito
@@ -23,7 +23,7 @@ public class AutomovelNoLsp
 public class AutomovelMotorCombustaoNoLsp : AutomovelNoLsp
 {
     public decimal ConsumoPorLitro { get; set; }
-    
+
     //Aqui o método AbastecerCombustivel está sendo herdado e se aplica devido 
     //ao tipo de motorização do veículo
 }

@@ -1,8 +1,8 @@
-using solid_principles.principles.Dip.Interfaces;
+using solid.principles.Dip.Interfaces;
 
-namespace solid_principles.principles.Dip;
+namespace solid.principles.Dip;
 
-public class Keyboard : IKeyboard 
+public class Keyboard : IKeyboard
 {
 
 }

@@ -6,12 +6,12 @@ para modificação", com isso passamos evitar possíveis erros a um aplicativo e
 ambiente produtivo, claro que se a modificação for para corrigir um erro existente 
 no código esse principio não deveria ser aplicado.
 ******************************************************************************/
-namespace solid_principles.principles.Ocp;
+namespace solid.principles.Ocp;
 
 public class Post
 {
-    public virtual void Create(string postMessage) 
-    { 
+    public virtual void Create(string postMessage)
+    {
         Printer.Add(postMessage);
     }
 
@@ -21,9 +21,9 @@ public class Post
     Se posteriormente quisermos incluir também menções iniciadas com '@', 
     teremos que modificar a classe com um 'else if' extra no método CreatePost.
     */
-    public virtual void CreateNoOcp(string postMessage) 
-    { 
-        if(postMessage.StartsWith("#"))
+    public virtual void CreateNoOcp(string postMessage)
+    {
+        if (postMessage.StartsWith("#"))
         {
             Printer.AddTag(postMessage);
         }
@@ -42,7 +42,7 @@ public class Post
 //podemos alterar o código lá, sem afetar nenhuma dessas partes subjacentes.
 public class TagPost : Post
 {
-    public override void Create(string postMessage) 
+    public override void Create(string postMessage)
     {
         Printer.AddTag(postMessage);
     }

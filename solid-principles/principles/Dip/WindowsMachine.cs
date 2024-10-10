@@ -5,9 +5,9 @@ O princípio da inversão de dependência refere-se à dissociação de módulos
 software. Dessa forma, em vez de módulos de alto nível, dependendo de módulos 
 de baixo nível, ambos dependerão de abstrações.
 ******************************************************************************/
-using solid_principles.principles.Dip.Interfaces;
+using solid.principles.Dip.Interfaces;
 
-namespace solid_principles.principles.Dip;
+namespace solid.principles.Dip;
 
 //Ao declarar o Keyboard e o Monitor como uma nova instância de cada classe, 
 //juntamos essas três classes e violados o princípio de inversão de dependência.
