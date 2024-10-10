@@ -16,9 +16,8 @@ classes-base (ou classes-mães)
 ******************************************************************************/
 namespace solid_principles.principles.Lsp;
 
-//Essa implementação viola o 'LSP', porque uma 
-//a pessoa jurídica irá herdar o método Andar() 
-//mesmo não podendo executá-lo.
+//Essa implementação viola o 'LSP', porque uma a pessoa jurídica irá herdar o 
+//método Andar() mesmo não podendo executá-lo.
 public class PessoaFisicaNoLsp
 {
     public string Nome { get; set;}
@@ -41,9 +40,8 @@ public class PessoaJuridicaNoLsp : PessoaFisicaNoLsp
     }
 }
 
-//Pará atender ao princípio 'Lsp', a classe Pessoa
-//deverá conter somente atributos e métodos que 
-//não afetem as classes filhas ao realizar a 
+//Para atender ao princípio 'Lsp', a classe Pessoa deverá conter somente 
+//atributos e métodos que não afetem as classes filhas ao realizar a 
 //substituição de seus objetos instanciados 
 public class Pessoa
 {
@@ -61,10 +59,8 @@ public class PessoaFisica : Pessoa
     }
 }
 
-//Essa implementação não 'carrega' o 
-//método que não pode ser executado pela 
-//PessoaJuridica e garante que cada um 
-//tenha o seu atributo de documento especializado.
+//Essa implementação não 'carrega' o método que não pode ser executado pela 
+//PessoaJuridica e garante que cada um tenha o seu atributo de documento especializado.
 public class PessoaJuridica : Pessoa
 {
     public string Cnpj { get; set;}

@@ -14,35 +14,34 @@ namespace solid_principles.principles.Isp
     internal class EmployeeNoIsp
     {
         public string Name { get; set; }
-        public decimal Salary { get; set; }
+        public decimal AmountSalary { get; set; }
     }
     
-    //Aqui o princípio 'Isp' está violado, pois o Recepcionista 
-    //não deveria receber comissão, mas como a interface 'força'
-    //a implementação de métodos que não são necessários.
-    //Sendo a solução o particionamento da interface em partes específicas.
+    //Aqui o princípio 'Isp' está violado, pois o Recepcionista não deveria 
+    //receber comissão, mas como a interface 'força' a implementação de métodos 
+    //que não são necessários. Sendo a solução o particionamento da interface 
+    //em partes específicas.
     internal class ReceptionistNoIsp : EmployeeNoIsp, IEmployeeNoIsp
     {
         public decimal GenerateCommission()
         {
-            return (decimal)0;
+            return 0;
         }
 
         public decimal Salary()
         {
-            return Salary;
+            return AmountSalary;
         }
     }
 
-    //Pará atender ao princípio 'Isp', os métodos são separados
-    //em interfaces de acordo com os papéis que irão executar, 
-    //dessa forma o Vendedor implemente métodos de Funcionário
-    //e também de Comissionavel, enquanto que o Recepcionista 
-    //implementa somente o papel de Funcionário 
+    //Para atender ao princípio 'Isp', os métodos são separados em interfaces de
+    //acordo com os papéis que irão executar, dessa forma o Vendedor 
+    //implemente métodos de Funcionário e também de Comissionável, enquanto 
+    //que o Recepcionista implementa somente o papel de Funcionário 
     internal class Employee
     {
         public string Name { get; set; }
-        public decimal Salary { get; set; }
+        public decimal AmountSalary { get; set; }
     }
 
     internal class Salesman : Employee, IEmployee, ICommissionable
@@ -54,20 +53,24 @@ namespace solid_principles.principles.Isp
         {
             return TotalSales < 150000
                ? PercentCommision * TotalSales
-               : (PercentCommision + 0.1) * TotalSales;
+               : (PercentCommision + (decimal)0.1) * TotalSales;
         }
 
         public decimal Salary()
         {
-            return Salary;
+            return AmountSalary;
         }
     }
 
-    internal class Receptionist : IEmployee
+    internal class Receptionist : Employee, IEmployee
     {
+        public int NumberHours { get; set; }
+
         public decimal Salary()
         {
-            return Salary;
+            return NumberHours > 160
+                ? AmountSalary + (decimal)(160 - NumberHours) * (decimal)(AmountSalary / 160)
+                : AmountSalary;
         }
     }
 }

@@ -9,13 +9,11 @@ using solid_principles.principles.Dip.Interfaces;
 
 namespace solid_principles.principles.Dip;
 
-//Ao declarar o Keyboard e o Monitor como uma nova instância 
-//de cada classe, juntamos essas três classes e violados 
-//o princípio de inversão de dependência.
-//Isso não apenas torna o nosso WindowsMachine difícil de 
-//testar, mas também perdemos a capacidade de mudar nossa 
-//classe Keyboard por outra diferente, caso seja necessário. 
-//E também estamos presos à nossa classe Monitor.
+//Ao declarar o Keyboard e o Monitor como uma nova instância de cada classe, 
+//juntamos essas três classes e violados o princípio de inversão de dependência.
+//Isso não apenas torna o nosso WindowsMachine difícil de testar, mas também 
+//perdemos a capacidade de mudar nossa classe Keyboard por outra diferente, 
+//caso seja necessário. E também estamos presos à nossa classe Monitor.
 public class WindowsMachineNoDip
 {
     private readonly Keyboard _keyboard;
