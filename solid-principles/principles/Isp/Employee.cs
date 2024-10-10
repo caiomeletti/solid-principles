@@ -11,21 +11,55 @@ using solid_principles.principles.Isp.Interfaces;
 
 namespace solid_principles.principles.Isp
 {
-    internal class Employee
+    internal class EmployeeNoIsp
     {
         public string Name { get; set; }
+        public decimal Salary { get; set; }
     }
-
-    internal class Salesman : IEmployee, ICommissionable
+    
+    //Aqui o princípio 'Isp' está violado, pois o Recepcionista 
+    //não deveria receber comissão, mas como a interface 'força'
+    //a implementação de métodos que não são necessários.
+    //Sendo a solução o particionamento da interface em partes específicas.
+    internal class ReceptionistNoIsp : EmployeeNoIsp, IEmployeeNoIsp
     {
         public decimal GenerateCommission()
         {
-            throw new NotImplementedException();
+            return (decimal)0;
         }
 
         public decimal Salary()
         {
-            throw new NotImplementedException();
+            return Salary;
+        }
+    }
+
+    //Pará atender ao princípio 'Isp', os métodos são separados
+    //em interfaces de acordo com os papéis que irão executar, 
+    //dessa forma o Vendedor implemente métodos de Funcionário
+    //e também de Comissionavel, enquanto que o Recepcionista 
+    //implementa somente o papel de Funcionário 
+    internal class Employee
+    {
+        public string Name { get; set; }
+        public decimal Salary { get; set; }
+    }
+
+    internal class Salesman : Employee, IEmployee, ICommissionable
+    {
+        public decimal PercentCommision { get; set; }
+        public decimal TotalSales { get; set; }
+
+        public decimal GenerateCommission()
+        {
+            return TotalSales < 150000
+               ? PercentCommision * TotalSales
+               : (PercentCommision + 0.1) * TotalSales;
+        }
+
+        public decimal Salary()
+        {
+            return Salary;
         }
     }
 
@@ -33,25 +67,7 @@ namespace solid_principles.principles.Isp
     {
         public decimal Salary()
         {
-            throw new NotImplementedException();
+            return Salary;
         }
     }
-
-    //Aqui o princípio está violado, pois a Recepcionsita
-    //não deveria receber comissão, mas como a interface 'força'
-    //a implementação de métodos que não são necessários.
-    //Sendo a solução o particionamento da interface em partes específicas.
-    internal class ReceptionistNoIsp : IEmployeeNoIsp
-    {
-        public decimal GenerateCommission()
-        {
-            throw new NotImplementedException();
-        }
-
-        public decimal Salary()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
 }
