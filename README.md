@@ -80,6 +80,7 @@ Ou seja, uma classe-filha deve ser capaz de executar tudo que sua classe-mãe fa
 
 1. [Pessoa](https://github.com/caiomeletti/solid-principles/blob/main/solid-principles/principles/Lsp/Pessoa.cs)
 2. [Student](https://github.com/caiomeletti/solid-principles/blob/main/solid-principles/principles/Lsp/Student.cs)
+3. [Automovel](https://github.com/caiomeletti/solid-principles/blob/main/solid-principles/principles/Lsp/Automovel.cs)
 
 
 ## Interface segregation principle 👥
